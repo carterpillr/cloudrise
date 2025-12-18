@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cloudrise Design System - Cozy, Clean, Playful */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Background & Surface */
+    --background: 0 0% 100%;
+    --foreground: 250 15% 25%;
+    
+    /* Cards & Popovers */
+    --card: 0 0% 100%;
+    --card-foreground: 250 15% 25%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 250 15% 25%;
+    
+    /* Primary - Deep Purple */
+    --primary: 270 50% 40%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Soft Pink */
+    --secondary: 340 80% 92%;
+    --secondary-foreground: 270 50% 35%;
+    
+    /* Muted */
+    --muted: 260 20% 96%;
+    --muted-foreground: 250 10% 50%;
+    
+    /* Accent - Warm Pink */
+    --accent: 340 70% 85%;
+    --accent-foreground: 270 50% 30%;
+    
+    /* Destructive */
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders & Inputs */
+    --border: 260 20% 90%;
+    --input: 260 20% 90%;
+    --ring: 270 50% 40%;
+    
+    --radius: 1rem;
+    
+    /* Custom Cloudrise Colors */
+    --purple-soft: 270 40% 95%;
+    --purple-medium: 270 50% 60%;
+    --purple-deep: 270 50% 40%;
+    --pink-soft: 340 80% 95%;
+    --pink-medium: 340 70% 85%;
+    --charcoal: 250 15% 25%;
+    --charcoal-soft: 250 10% 45%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(270 40% 97%) 0%, hsl(340 60% 97%) 50%, hsl(0 0% 100%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(260 30% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(270 50% 45%) 0%, hsl(300 50% 50%) 100%);
+    --gradient-pink: linear-gradient(135deg, hsl(340 70% 90%) 0%, hsl(320 60% 88%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(270 30% 50% / 0.08);
+    --shadow-md: 0 8px 24px -8px hsl(270 30% 50% / 0.12);
+    --shadow-lg: 0 16px 48px -12px hsl(270 30% 50% / 0.15);
+    --shadow-glow: 0 0 40px hsl(270 50% 60% / 0.2);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 250 15% 25%;
+    --sidebar-primary: 270 50% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 20% 96%;
+    --sidebar-accent-foreground: 250 15% 25%;
+    --sidebar-border: 260 20% 90%;
+    --sidebar-ring: 270 50% 40%;
+  }
+
+  .dark {
+    --background: 250 20% 8%;
+    --foreground: 0 0% 95%;
+    --card: 250 20% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 250 20% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 270 60% 65%;
+    --primary-foreground: 250 20% 8%;
+    --secondary: 340 40% 20%;
+    --secondary-foreground: 340 70% 85%;
+    --muted: 250 15% 18%;
+    --muted-foreground: 250 10% 60%;
+    --accent: 340 50% 25%;
+    --accent-foreground: 340 70% 90%;
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 250 15% 20%;
+    --input: 250 15% 20%;
+    --ring: 270 60% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-outfit antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-outfit font-semibold tracking-tight text-foreground;
+  }
+}
+
+@layer components {
+  /* Hero gradient background */
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  /* Card with subtle gradient */
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  /* Accent gradient for buttons */
+  .bg-accent-gradient {
+    background: var(--gradient-accent);
+  }
+  
+  /* Pink gradient */
+  .bg-pink-gradient {
+    background: var(--gradient-pink);
+  }
+  
+  /* Soft shadows */
+  .shadow-soft {
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .shadow-large {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Glass effect */
+  .glass {
+    @apply bg-background/80 backdrop-blur-lg;
+  }
+  
+  /* Link underline animation */
+  .link-underline {
+    @apply relative;
+  }
+  
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300;
+  }
+  
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+  
+  /* Subtle noise texture */
+  .texture-noise {
+    position: relative;
+  }
+  
+  .texture-noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.015;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+@layer utilities {
+  /* Animation delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Scale on hover */
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out;
+  }
+  
+  .hover-scale:hover {
+    @apply scale-[1.02];
+  }
+}
